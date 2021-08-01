@@ -18,8 +18,11 @@ const Img = styled.img`
   width: 100%;
   height: auto;
 `
+interface Props {
+  title: string
+}
 
-const PostCard = ({ title = 'There is no title post' }) => {
+const PostCard = ({ title = 'There is no title post' }: Props) => {
   const checkTitle = !title ? 'There is no title post' : title
 
   return (

@@ -74,7 +74,7 @@ const AddPost = () => {
     body: '',
   })
 
-  const handleSubmitPostForm = post => {
+  const handleSubmitPostForm = (post) => {
     dispatch(addNewPost(post))
     router.push('/')
   }
@@ -83,7 +83,7 @@ const AddPost = () => {
     <Post>
       <Img src={blog.src} alt="postImg" />
       <Content>
-        <form onSubmit={useFormPost(data => handleSubmitPostForm(data))}>
+        <form onSubmit={useFormPost((data) => handleSubmitPostForm(data))}>
           <Title name="title" type="text" placeholder="Add title post!" />
           <Textarea name="body" placeholder="Add body post!" />
           <Button type="submit">Sumbit</Button>

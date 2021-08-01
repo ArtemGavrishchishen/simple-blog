@@ -50,7 +50,7 @@ function Posts() {
 
   return (
     <List>
-      {posts.map(post => (
+      {posts.map((post) => (
         <Item key={post.id}>
           <Link
             href={{

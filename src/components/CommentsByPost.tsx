@@ -53,12 +53,17 @@ const Button = styled.button`
   }
 `
 
-const CommentsByPost = ({ comments, onSubmitForm }) => {
+interface Props {
+  comments: any
+  onSubmitForm: () => void
+}
+
+const CommentsByPost = ({ comments, onSubmitForm }: Props) => {
   return (
     <>
       <Title>Comments</Title>
       <List>
-        {comments.map(comment => (
+        {comments.map((comment) => (
           <Item key={comment.id}>{comment.body}</Item>
         ))}
       </List>

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 
 import type { AppState } from '../../app/store'
@@ -13,23 +14,17 @@ const initialState: PostsState = {
   status: 'idle',
 }
 
-export const getPostAsync = createAsyncThunk(
-  'post/fetchPost',
-  async (id: number) => {
-    const response = await fetchPost(id)
+export const getPostAsync = createAsyncThunk('post/fetchPost', async (id: number) => {
+  const response = await fetchPost(id)
 
-    return response
-  }
-)
+  return response
+})
 
-export const setPostComment = createAsyncThunk(
-  'post/setPostComment',
-  async (comment: Comments) => {
-    const response = await setComment(comment)
+export const setPostComment = createAsyncThunk('post/setPostComment', async (comment: Comments) => {
+  const response = await setComment(comment)
 
-    return response
-  }
-)
+  return response
+})
 
 export const postSlice = createSlice({
   name: 'post',
@@ -37,9 +32,9 @@ export const postSlice = createSlice({
 
   reducers: {},
 
-  extraReducers: builder => {
+  extraReducers: (builder) => {
     builder
-      .addCase(getPostAsync.pending, state => {
+      .addCase(getPostAsync.pending, (state) => {
         state.status = 'loading'
         state.value = null
       })
@@ -47,7 +42,7 @@ export const postSlice = createSlice({
         state.status = 'idle'
         state.value = action.payload
       })
-      .addCase(getPostAsync.rejected, state => {
+      .addCase(getPostAsync.rejected, (state) => {
         state.status = 'failed'
         state.value = null
       })

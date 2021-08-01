@@ -1,3 +1,4 @@
+import React from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
 import styled from 'styled-components'
@@ -35,7 +36,11 @@ const Nav = styled.div`
   padding: 20px 10px;
 `
 
-const BaseLayout = ({ children }) => {
+interface Props {
+  children: any
+}
+
+const BaseLayout = ({ children }: Props) => {
   return (
     <div id="root">
       <Head>

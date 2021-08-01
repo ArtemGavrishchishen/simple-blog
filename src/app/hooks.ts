@@ -13,7 +13,7 @@ export const useForm =
     const form = event.target as HTMLFormElement
     const elements = Array.from(form.elements) as HTMLInputElement[]
     const data = elements
-      .filter(element => element.hasAttribute('name'))
+      .filter((element) => element.hasAttribute('name'))
       .reduce(
         (object, element) => ({
           ...object,

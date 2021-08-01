@@ -8,7 +8,11 @@ import CommentsByPost from '../../components/CommentsByPost'
 import { useAppSelector, useAppDispatch, useForm } from '../../app/hooks'
 import { getPostAsync, setPostComment, selectPost } from './postSlice'
 
-function Post({ postId }) {
+interface Props {
+  postId: number
+}
+
+function Post({ postId }: Props) {
   const dispatch = useAppDispatch()
   const postById = useAppSelector(selectPost)
 
@@ -36,9 +40,7 @@ function Post({ postId }) {
       {comments.length !== 0 && (
         <CommentsByPost
           comments={comments}
-          onSubmitForm={useFormComment(data =>
-            handleSubmitCommentForm(data.comment)
-          )}
+          onSubmitForm={useFormComment((data) => handleSubmitCommentForm(data.comment))}
         />
       )}
     </>

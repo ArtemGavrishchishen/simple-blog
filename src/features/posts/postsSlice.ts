@@ -19,14 +19,11 @@ export const getPostsAsync = createAsyncThunk('posts/fetchPost', async () => {
   return response
 })
 
-export const addNewPost = createAsyncThunk(
-  'posts/addPost',
-  async (post: Post) => {
-    const response = await addPost(post)
+export const addNewPost = createAsyncThunk('posts/addPost', async (post: Post) => {
+  const response = await addPost(post)
 
-    return response
-  }
-)
+  return response
+})
 
 export const postsSlice = createSlice({
   name: 'posts',
@@ -34,9 +31,9 @@ export const postsSlice = createSlice({
 
   reducers: {},
 
-  extraReducers: builder => {
+  extraReducers: (builder) => {
     builder
-      .addCase(getPostsAsync.pending, state => {
+      .addCase(getPostsAsync.pending, (state) => {
         state.status = 'loading'
         state.value = []
       })
@@ -48,7 +45,7 @@ export const postsSlice = createSlice({
         state.status = 'idle'
         state.value = [action.payload, ...state.value]
       })
-      .addCase(getPostsAsync.rejected, state => {
+      .addCase(getPostsAsync.rejected, (state) => {
         state.status = 'failed'
         state.value = []
       })

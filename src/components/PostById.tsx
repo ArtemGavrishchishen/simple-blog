@@ -3,6 +3,10 @@ import styled from 'styled-components'
 
 import blog from '../assets/blog.png'
 
+export interface Post {
+  post: any
+}
+
 const Post = styled.div`
   color: ${({ theme }) => theme.colors.primary};
   display: flex;
@@ -29,8 +33,11 @@ const Content = styled.div`
     width: 50%;
   }
 `
+interface Props {
+  post: any
+}
 
-const PostById = ({ post }) => {
+const PostById = ({ post }: Props) => {
   return (
     <Post>
       <Img src={blog.src} alt={post.title} />
