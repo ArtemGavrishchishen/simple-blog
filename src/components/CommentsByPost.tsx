@@ -55,7 +55,7 @@ const Button = styled.button`
 
 interface Props {
   comments: any
-  onSubmitForm: () => void
+  onSubmitForm: (data: any) => void
 }
 
 const CommentsByPost = ({ comments, onSubmitForm }: Props) => {
