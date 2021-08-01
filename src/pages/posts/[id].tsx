@@ -13,7 +13,7 @@ const Title = styled.h1`
 
 const post = () => {
   const router = useRouter()
-  const { id } = router.query
+  const id = Number(router.query.id)
 
   return (
     <>
