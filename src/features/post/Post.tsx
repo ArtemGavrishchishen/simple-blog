@@ -37,12 +37,11 @@ function Post({ postId }: Props) {
   return (
     <>
       {post && <PostById post={post} />}
-      {comments.length !== 0 && (
-        <CommentsByPost
-          comments={comments}
-          onSubmitForm={useFormComment((data) => handleSubmitCommentForm(data.comment))}
-        />
-      )}
+
+      <CommentsByPost
+        comments={comments}
+        onSubmitForm={useFormComment((data) => handleSubmitCommentForm(data.comment))}
+      />
     </>
   )
 }
